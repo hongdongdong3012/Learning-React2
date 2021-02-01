@@ -6,7 +6,7 @@ class IPAddress extends Component {
         return (
             <div>
                 <h1>{this.props.ip}</h1>
-                <p>(This is your IP adress...probably :p)</p>
+                <p>( This is your IP adress...probably :p )</p>
             </div>
         )
     }
