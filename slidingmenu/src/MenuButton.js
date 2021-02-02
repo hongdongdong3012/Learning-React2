@@ -1,7 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
-class MenuButton extends Component {
+class MenuButton extends PureComponent {
+
     render() {
+        console.log("Rendering : MenuButton");
+        
         return (
             <button id="roundButton"
                 onMouseDown={this.props.handleMouseDown}>
