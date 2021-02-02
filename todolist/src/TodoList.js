@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TodoItems from "./TodoItems";
+import "./TodoList.css"
 
 class TodoList extends Component {
     constructor(props) {
@@ -12,34 +13,34 @@ class TodoList extends Component {
         this.addItem = this.addItem.bind(this);
         this.deleteItem = this.deleteItem.bind(this);
     }
-
     addItem(e) {
         var itemArray = this.state.items;
 
         if (this._inputElement.value !== "") {
-            itemArray.unshift({
+            itemArray.unshift ({
                 text: this._inputElement.value,
-                key: Date.now()
+                key : Date.now()
             })
             this.setState({
                 items: itemArray
-            })
+            });
 
             this._inputElement.value = "";
         }
+        console.log(itemArray);
 
-        console.log(itemArray);;
+
         e.preventDefault();
     }
 
     deleteItem(key) {
-        var filteredItems = this.state.items.filter(function(item){
+        var filteredItems = this.state.items.filter(function(item) {
             return (item.key !== key);
         });
 
         this.setState({
             items: filteredItems
-        });
+        })
     }
 
     render() {
@@ -48,12 +49,12 @@ class TodoList extends Component {
                 <div className="header">
                     <form onSubmit={this.addItem}>
                         <input ref={(a) => this._inputElement = a} 
-                            placeholder="enter task"></input>
-                        <button type="submit">add</button>
+                            type="text" placeholder="enter task"></input>
+                        <button type="submit">입력</button>
                     </form>
                 </div>
                 <TodoItems entries={this.state.items} 
-                    delete={this.deleteItem}/>
+                           delete={this.deleteItem}/>
             </div>
         )
     }
